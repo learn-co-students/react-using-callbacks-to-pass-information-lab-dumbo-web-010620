@@ -3,17 +3,33 @@ import React, { Component } from 'react';
 export default class Cell extends Component {
   
   constructor(props) {
-    super(props)
+    super()
     this.state = {
-      color: this.props.color
+      color: props.color
     }
+  }
+  // just changed
+  //       color: this.props.color
+  // to
+  //       color: props.color
+
+  handleClick = () => {
+    this.setState({
+      color: this.props.selectedColor 
+    })
   }
   
   render() {
     return (
-      <div className="cell" style={{backgroundColor: this.state.color}}>
+      <div 
+        className="cell" 
+        style={{backgroundColor: this.state.color}}
+        onClick={this.handleClick}
+      >
       </div>
     )
   }
   
 }
+
+// missing onClick in render
